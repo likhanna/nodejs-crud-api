@@ -1,5 +1,5 @@
 import { IncomingMessage, ServerResponse, createServer } from 'http';
-import { Endpoints } from '../constants';
+import { ErrorMessages, StatusCodes, Endpoints } from '../constants';
 import { responseError } from '../controller';
 import { UserService } from '../services';
 
@@ -22,7 +22,11 @@ export class Server {
         }
       } catch (error) {
         if (error instanceof Error) {
-          responseError(response, 404, error.message);
+          responseError(
+            response,
+            StatusCodes.NOT_FOUND,
+            ErrorMessages.INVALID_ENDPOINT,
+          );
         }
       }
     },

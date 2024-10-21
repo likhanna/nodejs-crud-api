@@ -11,7 +11,7 @@ class Controller {
     response.end(JSON.stringify(data));
 
     console.log(
-      `Execution on port: ${process.env.executionPort}, proccess id: #${process.pid}`,
+      `\n\n\Execution on port: ${process.env.executionPort}, proccess id: #${process.pid}`,
     );
   };
 

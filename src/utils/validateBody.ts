@@ -1,4 +1,5 @@
 import { IncomingMessage, ServerResponse } from 'http';
+import { ErrorMessages, StatusCodes } from '../constants';
 import { responseError } from '../controller';
 import { UserDto } from '../types';
 
@@ -25,8 +26,16 @@ export const validateBody = (
       return;
     }
 
-    responseError(response, 400, 'Invalid body');
+    responseError(
+      response,
+      StatusCodes.BAD_REQUEST,
+      ErrorMessages.INVALID_BODY,
+    );
   } catch (error) {
-    responseError(response, 400, 'Invalid body');
+    responseError(
+      response,
+      StatusCodes.BAD_REQUEST,
+      ErrorMessages.INVALID_BODY,
+    );
   }
 };
