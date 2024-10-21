@@ -11,7 +11,8 @@
     "start:prod": "cross-env NODE_ENV=production npm run build && node ./build/bundle.js",
     "start:dev:multi": "cross-env NODE_ENV=development MODE=multi nodemon",
     "start:prod:multi": "cross-env NODE_ENV=production MODE=multi npm run build && cross-env MODE=multi node ./build/bundle.js",
-    "build": "webpack"
+    "build": "webpack",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,11 +24,16 @@
   "author": "likhanna",
   "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^29.5.13",
+    "@types/supertest": "^6.0.2",
     "@types/uuid": "^10.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^9.13.0",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.7",
     "prettier": "^3.3.3",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.5",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.6.3",
