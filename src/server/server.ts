@@ -5,15 +5,23 @@ import { UserService } from '../services';
 import { User } from '../types';
 
 export class Server {
-  constructor(private port: number, private userService: UserService) {
-    this.port = process.env.increment ? port + Number(process.env.increment) : port;
+  constructor(
+    private port: number,
+    private userService: UserService,
+  ) {
+    this.port = process.env.increment
+      ? port + Number(process.env.increment)
+      : port;
   }
 
   private server = createServer(
-    async (request: IncomingMessage, response: ServerResponse<IncomingMessage>): Promise<void> => {
+    async (
+      request: IncomingMessage,
+      response: ServerResponse<IncomingMessage>,
+    ): Promise<void> => {
       try {
         const { url } = request;
-        console.log('%csrcserverserver.ts:16 url', 'color: #007acc;', url);
+
         process.env.executionPort = String(this.port);
 
         if (url?.startsWith(Endpoints.USERS)) {
@@ -31,7 +39,9 @@ export class Server {
 
   public start = (): void => {
     this.server.listen(this.port, (): void => {
-      console.log(`Server started on port: ${this.port}, proccess id: #${process.pid}`);
+      console.log(
+        `Server started on port: ${this.port}, proccess id: #${process.pid}`,
+      );
     });
   };
 
