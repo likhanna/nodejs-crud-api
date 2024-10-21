@@ -6,6 +6,6 @@ export const getAndValidateId = (url: string): string | null => {
   if (!id || !validate(id)) {
     return null;
   }
-
+  console.log('%c getAndValidateID.ts:9 id', 'color: #007acc;', id);
   return id;
 };

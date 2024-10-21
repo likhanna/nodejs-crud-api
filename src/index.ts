@@ -1,5 +1,3 @@
-import { Server } from './server/server';
-import { UserService } from './services';
+import { LoadBalancer } from './server';
 
-const server = new Server(new UserService());
-server.start();
+LoadBalancer.run(process.env.MODE);
